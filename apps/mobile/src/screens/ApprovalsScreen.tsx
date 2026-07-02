@@ -7,7 +7,7 @@ export default function ApprovalsScreen() {
 
   const load = async () => {
     const token = await AsyncStorage.getItem('token');
-    const res = await fetch('http://localhost:3018/approvals/pending?tenantId=placeholder', {
+    const res = await fetch('http://localhost:3018/v1/approvals/pending?tenantId=placeholder', {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();

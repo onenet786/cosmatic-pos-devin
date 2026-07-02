@@ -8,7 +8,7 @@ export default function DashboardScreen({ navigation }: any) {
 
   const load = async () => {
     const token = await AsyncStorage.getItem('token');
-    const res = await fetch('http://localhost:3018/reports/dashboard?tenantId=placeholder', {
+    const res = await fetch('http://localhost:3018/v1/reports/dashboard?tenantId=placeholder', {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();

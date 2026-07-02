@@ -8,7 +8,7 @@ export default function LoginScreen({ navigation }: any) {
 
   const login = async () => {
     try {
-      const res = await fetch('http://localhost:3018/auth/login', {
+      const res = await fetch('http://localhost:3018/v1/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
