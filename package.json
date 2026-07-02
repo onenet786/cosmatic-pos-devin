@@ -1,0 +1,27 @@
+{
+  "name": "cosmatic-pos",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "db:migrate": "npm run db:push --workspace=@cosmatic/api",
+    "db:seed": "npm run db:seed --workspace=@cosmatic/api",
+    "db:generate": "npm run db:generate --workspace=@cosmatic/api",
+    "start:api": "npm run start:prod --workspace=@cosmatic/api",
+    "start:web": "npm run start --workspace=@cosmatic/web"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "11.13.0"
+    }
+  }
+}
