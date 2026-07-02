@@ -18,10 +18,8 @@
   "workspaces": [
     "apps/*"
   ],
-  "devEngines": {
-    "packageManager": {
-      "name": "npm",
-      "version": "11.13.0"
-    }
+  "engines": {
+    "node": ">=20 <25",
+    "npm": ">=10 <12"
   }
 }

@@ -4,23 +4,27 @@ This setup runs the API and web app on private, unique ports so it does not dist
 
 ## 1. Requirements
 
-- Node.js 20 LTS and npm
+- Node.js 20 LTS with npm 10 or 11 (recommended; do not pin npm to an exact patch version)
 - PostgreSQL 16 (local or managed)
 - aaPanel **Node Project Manager** and Nginx
 - A domain such as `pos.example.com` with DNS pointed to the server
 
 Do not expose ports 3017, 3018, PostgreSQL, or Redis publicly. Only Nginx should accept public HTTP/HTTPS traffic.
 
-## 2. Upload and install
+## 2. Clone and install
 
-Upload the repository to a dedicated path, for example:
+Open aaPanel Terminal or connect through SSH, then clone the repository into a dedicated directory:
 
 ```bash
-cd /www/wwwroot/cosmatic-pos
+cd /www/wwwroot
+git clone https://github.com/onenet786/cosmatic-pos-devin.git cosmatic-pos
+cd cosmatic-pos
 npm ci
 cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env.production
 ```
+
+If `/www/wwwroot/cosmatic-pos` already exists and is not empty, back it up or choose a different destination before cloning. Do not clone over an existing application directory.
 
 Edit both environment files. Use a new database user/password and generate the JWT secret with:
 
@@ -95,6 +99,8 @@ The browser calls `/api/...` on the web domain. Next.js forwards those requests 
 Back up the database before every update. Then, from the project directory:
 
 ```bash
+cd /www/wwwroot/cosmatic-pos
+git pull --ff-only origin master
 npm ci
 npm run db:generate
 npm run db:migrate
