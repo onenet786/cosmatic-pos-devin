@@ -60,12 +60,12 @@ In **Website > Node Project**, create these independent projects:
 | Setting | API | Web |
 |---|---|---|
 | Project name | `cosmatic-api` | `cosmatic-web` |
-| Project directory | `/www/wwwroot/cosmatic-pos` | `/www/wwwroot/cosmatic-pos` |
-| Run command | `npm run start:api` | `npm run start:web -- --port 3017 --hostname 127.0.0.1` |
+| Project directory | `/www/wwwroot/glamboon.binishaqsoft.com` | `/www/wwwroot/glamboon.binishaqsoft.com` |
+| Run command | `npm run start:api` | `npm run start:web` |
 | Node version | 20 LTS | 20 LTS |
 | Port | 3018 | 3017 |
 
-Set each project to start automatically and keep its own process name. Do not reuse an existing project's port or process entry. The API reads its port from `apps/api/.env`; the web command sets its port explicitly.
+Set each project to start automatically and keep its own process name. Do not reuse an existing project's port or process entry. The API reads its port from `apps/api/.env`; the web package script binds to `127.0.0.1:3017`.
 
 Start the API first, then the web project. Test privately on the server:
 
